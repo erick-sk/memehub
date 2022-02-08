@@ -1,4 +1,5 @@
 class Meme < ApplicationRecord
+  self.inheritance_column = :_ # Disable STI
   # Associations
   belongs_to :category
   belongs_to :owner, class_name: "User", counter_cache: true
@@ -6,7 +7,7 @@ class Meme < ApplicationRecord
   has_many :comments
   has_many :commentators, through: :comments, source: :user
   has_many :votes
-  has_many :voters, through: :votes, source: user
+  has_many :voters, through: :votes, source: :user
 
   # Enums
   enum type: { image: "image", gif: "gif" }
@@ -14,5 +15,5 @@ class Meme < ApplicationRecord
   # Validations
   validates :title, presence: true, uniqueness: true
   validates :type, presence: true
-  validates :url_source, presence: true, format: {whit: %r{^https?://.+(png|gif|jpg)$}, message: "Add a valid meme URL"}
+  validates :url_source, presence: true, format: { with: %r{\Ahttps?://.+(png|gif|jpg)\z}, message: "Add a valid meme URL" }
 end
