@@ -12,4 +12,8 @@ class MemesController < ApplicationController
 
   def new
   end
+
+  def popular
+    @memes = Meme.all.order(votes_count: :desc)
+  end
 end
