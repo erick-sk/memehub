@@ -1,7 +1,5 @@
 <% @categories.each do | category | %>
   <h2><%= category.name %></h2>
 
-  <% category.memes.each do | meme | %>
-    <%= render "memes/meme", meme: meme %>
-  <% end %>
+  <%= render partial: "memes/meme", collection: category.memes %>
 <%end %>
