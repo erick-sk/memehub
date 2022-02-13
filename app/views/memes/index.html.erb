@@ -1,0 +1,9 @@
+<h1>Memes#index</h1>
+<p>Find me in app/views/memes/index.html.erb</p>
+
+<% @memes_by_date.each do |date, memes| %>
+  <h2><%= date.strftime("%A, %b %-d") %></h2>
+  <% memes.each do |meme| %>
+    <%= image_tag meme.url_source, alt: meme.title, width: "200px" %>
+  <% end %>
+<% end %>
