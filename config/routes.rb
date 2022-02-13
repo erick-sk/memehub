@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'memes#index'
   get '/popular', to: 'memes#popular'
+  resources :memes, only: [:show]
   resources :categories, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# Create a user
+User.create!(username: "rickfox", email: "erickfox@fox.mail", password: "123456");
+
+# Add some categories
+categories = ["Tech", "Other", "Funny" ]
+Category.create!(categories.map { |ctg| {name: ctg}})
+
+# Add some memes
+(1..10).each do | num |
+  fake_meme = {
+    title: "Meme Title #{num}",
+    type: "image",
+    category: [Category.first, Category.second][rand * 2],
+    created_at: (rand * 3).days.ago,
+    # Add random amount of votes
+    votes_count: rand * 5,
+    url_source: "http://localhost:3000/memes/#{num}.jpg",
+    owner: User.first
+  }
+  Meme.create!(fake_meme)
+end
