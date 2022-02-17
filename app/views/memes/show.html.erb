@@ -16,6 +16,12 @@
   <% unless user_signed_in?%>
     <p>Login to add a comment</p>
   <% end %>
+
+  <%= form_for [@meme, @comment] do | f | %>
+    <%= f.text_area :body %>
+    <%= f.submit "Comment" %>
+  <% end %>
+
   <ul>
     <% @meme.comments.each do | comment |%>
       <li><%=comment.user.username %>: <%= comment.body %></li>
