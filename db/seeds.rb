@@ -18,7 +18,7 @@ Category.create!(categories.map { |ctg| {name: ctg}})
   fake_meme = {
     title: "Meme Title #{num}",
     type: "image",
-    category: [Category.first, Category.second][rand * 2],
+    category: [Category.first, Category.second, Category.third][rand * 3],
     created_at: (rand * 3).days.ago,
     # Add random amount of votes
     votes_count: rand * 5,

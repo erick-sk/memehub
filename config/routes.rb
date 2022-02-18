@@ -9,8 +9,14 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:index]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  resources :memes, only: [:show] do
+    resources :comments, only:  [:create]
+  end
+
+  resources :users, only: [:index]
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #
   # Defines the root path route ("/")
   # root "articles#index"
 end

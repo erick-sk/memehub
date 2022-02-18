@@ -1,7 +1,7 @@
 class MemesController < ApplicationController
   def index
     memes = Meme.all.order(created_at: :desc)
-    @memes_by_date = memes.all.group_by { |meme| meme.created_at.to_datetime }
+    @memes_by_date = memes.all.group_by { |meme| meme.created_at.to_date }
   end
 
   def show

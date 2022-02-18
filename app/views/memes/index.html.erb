@@ -1,5 +1,7 @@
 <% @memes_by_date.each do |date, memes| %>
-  <h2><%= date.strftime("%A, %b %-d") %></h2>
 
-  <%= render partial: "meme", collection: memes %>
+  <h2><%= date.strftime("%A, %b %-d") %></h2>
+  <div class="memes-container">
+    <%= render partial: "meme", collection: memes %>
+  </div>
 <% end %>

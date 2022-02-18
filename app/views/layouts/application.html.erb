@@ -11,35 +11,36 @@
 
   <body>
     <div class="main-content">
-    <header>
-      <%= link_to root_path do %>
-        <%= image_tag "memehub.png", width: "100px"%>
-      <% end %>
-
-      <nav>
-        <%= link_to "By Category", categories_path %>
-        <%= link_to "By Popular", popular_path %>
-        <%= link_to "Search", "" %>
-
-        <% if user_signed_in? %>
-          <%= link_to "Create meme", new_meme_path %>
-          Welcome, <%= current_user.username %>
-          <%= link_to "My account", "TBD"%>
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Log in", user_session_path %>
+      <header class="header">
+        <%= link_to root_path do %>
+          <%= image_tag "memehub.png", width: "150px"%>
         <% end %>
-      </nav>
-    </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+        <nav class="nav">
+          <%= link_to "By Category", categories_path %>
+          <%= link_to "By Popular", popular_path %>
+          <%= link_to "Search", "" %>
 
-    <%= yield %>
+          <% if user_signed_in? %>
+            <%= link_to "Create meme", new_meme_path %>
+            <p>Welcome, <%= current_user.username %></p>
+            <%= link_to "My account", users_path%>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Log in", user_session_path %>
+          <% end %>
+        </nav>
+      </header>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </div>
 
-  <footer class="signature">
-    Made by Erick Saavedra
-  </footer>
+      <footer class="signature">
+        Made by Erick Saavedra
+      </footer>
+    </div>
+
   </body>
 </html>

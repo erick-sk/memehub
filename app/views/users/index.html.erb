@@ -1,0 +1,7 @@
+<h1>My account</h1>
+
+<p>Username: <%= current_user.username %></p>
+<p>Email: <%= current_user.email %></p>
+<p># of memes: <%= current_user.memes_count %></p>
+
+<%= link_to "Edit", edit_user_registration_path %>
