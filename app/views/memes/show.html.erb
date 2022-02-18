@@ -2,11 +2,18 @@
 
 <%= image_tag @meme.url_source, alt: @meme.title, width: "400px" %>
 
+  <p>
+    Category: <%= @meme.category.name %>
+  </p>
+
 <div>
-  <p> Category: <%= @meme.category.name %></p>
-  <p> Votes: <%= @meme.votes_count %></p>
-  <% unless user_signed_in?%>
-    Login to add a comment
+  Votes: <%= @meme.votes_count %>
+  <% if user_signed_in? %>
+    <% unless @meme.has_voted?(current_user) %>
+      <%= button_to "Vote!", meme_votes_path(@meme), method: :post %>
+    <% end %>
+  <% else %>
+    Login to vote!
   <% end %>
 </div>
 

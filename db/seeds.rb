@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Create a user
-User.create!(username: "rickfox", email: "erickfox@fox.mail", password: "123456");
+User.create!(username: "admin", email: "admin@admin.mail", password: "123456");
 
 # Add some categories
 categories = ["Tech", "Other", "Funny" ]

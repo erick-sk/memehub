@@ -16,4 +16,8 @@ class Meme < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :type, presence: true
   validates :url_source, presence: true, format: { with: %r{\Ahttps?://.+(png|gif|jpg)\z}, message: "Add a valid meme URL" }
+
+  def has_voted?(user)
+    votes.exists?(user: user)
+  end
 end
