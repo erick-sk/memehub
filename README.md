@@ -1,24 +1,24 @@
-# README
+# Memehub
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here you can share your favorite memes with the world.
 
-Things you may want to cover:
+### Installation
 
-* Ruby version
+- First, clone the repository:
 
-* System dependencies
+```shell
+    $ git clone git@github.com:erick-sk/memehub.git
+    $ cd memehub
+```
 
-* Configuration
+- Install the gems and dependencies executing:
 
-* Database creation
+```shell
+    $ bundle install
+```
 
-* Database initialization
+- Run the server
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+    $ rails s
+```
